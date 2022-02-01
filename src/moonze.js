@@ -5,18 +5,25 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const s = "*";
+let n;
+let x;
+let numArr = [];
 
 rl.on("line", (line) => {
-  const input = Number(line);
-
-  for (let i = 1; i <= input; i++) {
-    for (let j = input; j > i; j--) {
-      process.stdout.write(" ");
-    }
-    for (let j = 0; j < i; j++) {
-      process.stdout.write(s);
-    }
-    console.log();
+  const input = line.split(" ");
+  if (input.length === 2) {
+    n = Number(input[0]);
+    x = Number(input[1]);
+    console.log(`n: ${n}`);
   }
+  if (input.length === n) {
+    numArr = line.split(" ").map((num) => parseInt(num));
+    rl.close();
+  }
+});
+rl.on("close", () => {
+  for (let i = 0; i < numArr.length; i++) {
+    var newArr = numArr.filter((su) => Number(su) < x);
+  }
+  console.log(newArr.toString());
 });
