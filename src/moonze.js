@@ -5,24 +5,18 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-let testCase = 100;
-let valueArr = [];
+const s = "*";
 
 rl.on("line", (line) => {
-  const input = line.split(" ");
-  if (input.length === 1) testCase = input[0];
-  else {
-    const A = Number(input[0]);
-    const B = Number(input[1]);
-    valueArr.push([A, B]);
+  const input = Number(line);
+
+  for (let i = 1; i <= input; i++) {
+    for (let j = input; j > i; j--) {
+      process.stdout.write(" ");
+    }
+    for (let j = 0; j < i; j++) {
+      process.stdout.write(s);
+    }
+    console.log();
   }
-}).on("close", () => {
-  for (let i = 0; i < testCase; i++) {
-    console.log(
-      `Case #${i + 1}: ${valueArr[i][0]} + ${valueArr[i][1]} = ${
-        valueArr[i][0] + valueArr[i][1]
-      }`
-    );
-  }
-  process.exit();
 });
