@@ -9,7 +9,7 @@ let answer = "";
 
 rl.on("line", (line) => {
   const input = line;
-  for (let i = 1; i <= input; i++) {
+  for (let i = input; i >= 1; i--) {
     answer += i;
     answer += "\n";
   }
