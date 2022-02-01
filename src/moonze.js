@@ -5,15 +5,23 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-let add = 0;
+let answer = "";
+let testCase = 0;
 
 rl.on("line", (line) => {
-  const n = Number(line);
+  const input = line.split(" ");
+  if (testCase === answer.split("\n").length) {
+    rl.close();
+  }
 
-  for (let i = 1; i <= n; i++) {
-    add += i;
+  if (input.length === 2) {
+    const A = Number(input[0]);
+    const B = Number(input[1]);
+    answer += A + B + "\n";
+  } else {
+    testCase = Number(input[0]);
   }
 }).on("close", () => {
-  console.log(add);
+  console.log(answer);
   process.exit();
 });
