@@ -25,5 +25,5 @@ rl.on("close", () => {
   for (let i = 0; i < numArr.length; i++) {
     var newArr = numArr.filter((su) => Number(su) < x);
   }
-  console.log(newArr.toString().replaceAll(",", " "));
+  console.log(newArr.join(" "));
 });
